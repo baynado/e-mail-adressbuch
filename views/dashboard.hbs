@@ -1,0 +1,40 @@
+<h6>Dashboard</h6>
+<h3>Willkommen {{name}}</h3>
+<p>Hier sind Deine E-Mailadressen</p>
+{{#if stories}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Empfängername</th>
+            <th>E-Mailadresse</th>
+            <th>Datum</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each stories}}
+        <tr>
+            <td><a href="/stories/{{_id}}">{{name}}</a></td>
+            <td><a href="/stories/{{_id}}">{{title}}</a></td>
+            <td>{{formatDate createdAt 'DD MM YYYY, HH:mm:ss'}}</td>
+            <td><span class="dash-status">{{status}}</span></td>
+            <td>
+                <a href="/stories/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+                <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>Du hast noch keine E-Mailadress hinterlegt.</p>
+{{/if}}

@@ -1,0 +1,40 @@
+<h3>Add Story</h3>
+<div class="row">
+    <form action="/stories" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="name" name="name">
+                <label for="title">Empfängername</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title">
+                <label for="title">E-Mailadresse</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    <option value="public" selected>Öffentlich</option>
+                    <option value="private">Privat</option>
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Bemerkung zur E-Mailadresse:</h5>
+                <textarea id="body" name="body"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Speichern" class="btn">
+            <a href="/dashboard" class="btn orange">Abbrechen</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+<h1>Öffentliche E-Mailadressen</h1>
+<div class="row">
+    {{#each stories}}
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                {{{editIcon user ../user _id}}}
+            </div>
+            <div class="card-content center-align">
+                 <h5>{{name}}</h5>
+                <h6>{{title}}</h6>
+                <p>{{stripTags (truncate body 150)}}</p>
+                <br>
+                <div class="chip">
+                    <img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" alt="{{user.displayName}}" title="{{user.displayName}}">
+                    <a title="{{user.displayName}}" href="/stories/user/{{user._id}}">{{user.displayName}}</a>
+                </div> 
+            </div>
+            <div class="card-action center-align">
+                <a href="/stories/{{_id}}" class="btn grey">Mehr Infos</a>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p>Keine E-Mailadressen vorhanden.</p>
+    {{/each}}
+</div>

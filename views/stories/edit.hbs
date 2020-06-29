@@ -1,0 +1,42 @@
+<h3>Adressbuch Eintrag bearbeiten</h3>
+<div class="row">
+    <form action="/stories/{{story._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="name" name="name" value="{{story.name}}">
+                <label for="title">Empfängername</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value="{{story.title}}">
+                <label for="title">Title</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    {{#select story.status}}
+                    <option value="public" selected>Öffentlich</option>
+                    <option value="private">Privat</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Deine Bemerkung zum Eintrag:</h5>
+                <textarea id="body" name="body">{{story.body}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Speichern" class="btn">
+            <a href="/dashboard" class="btn orange">Abbrechen</a>
+        </div>
+    </form>
+</div>
